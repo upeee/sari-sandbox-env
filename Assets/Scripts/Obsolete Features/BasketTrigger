@@ -1,0 +1,82 @@
+using UnityEngine;
+
+public class BasketTrigger : MonoBehaviour
+{
+    public Transform cameraTransform; // Reference to the camera's transform
+    public GameObject BasketObject;
+    public Basket Basket; // Reference to the Basket
+    public Gripper gripper;
+    public enum SnappingType
+    {
+        SnapRegardless, // Snap the basket upon entering the trigger
+        SnapWhenReleased    // Snap the basket to the position only when it is released by the gripper while inside the trigger
+    }
+    public SnappingType snappingType = SnappingType.SnapRegardless;
+
+    private  Rigidbody rb;
+
+    void Start()
+    {
+        Basket = BasketObject.GetComponent<Basket>();
+        rb = Basket.GetComponent<Rigidbody>();
+    }
+    
+    void Update()
+    {
+        // Follow the camera's position
+        transform.position = cameraTransform.position;
+
+        // Only use the y-axis rotation of the camera
+        Quaternion cameraRotation = cameraTransform.rotation;
+        transform.rotation = Quaternion.Euler(0, cameraRotation.eulerAngles.y, 0);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject == Basket.gameObject)
+        {
+            Debug.Log("Basket entered BasketTrigger");
+            if (snappingType == SnappingType.SnapRegardless)
+            {
+                SnapToPosition();
+                gripper.release();
+                Debug.Log("Basket snapped to position");
+            }
+            else
+            {
+                Basket.collidingWithTrigger = true;
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject == Basket.gameObject)
+        {
+            // Set the isSnapped variable to false
+            Basket.SetSnapped(false);
+            Debug.Log("Basket removed from BasketTrigger");
+        }
+    }
+
+    public void SnapToPosition()
+    {
+        // Specify the position where the basket should snap relative to the BasketTrigger
+        Vector3 basketPosition = transform.position + transform.forward * 0.3f - transform.up * 0.30f;
+        Basket.transform.position = basketPosition;
+
+        // Optionally, set the rotation if needed
+        Quaternion basketRotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
+        Basket.transform.rotation = basketRotation;
+
+        // Set the basket's parent to the BasketTrigger
+        Basket.transform.SetParent(transform);
+
+        //Set the basket to isKinematic
+        rb.isKinematic = true;
+
+        // Set the isSnapped variable to true
+        Basket.SetSnapped(true);
+        Debug.Log("isSnapped set to true.");
+    }
+}

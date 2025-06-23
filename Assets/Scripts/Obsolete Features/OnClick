@@ -1,0 +1,76 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class OnClick : MonoBehaviour
+{
+    public GameObject StoreManager;
+    public GameObject Agent;
+    public GameObject onClickPopup;    
+    public List<string> Items = new List<string>() 
+    {"Grocery_CocoCrunch", 
+    "Grocery_Danisa", 
+    "Grocery_iHop", 
+    "Grocery_JollyTime", 
+    "Grocery_Mamon", 
+    "Grocery_Wafer",
+    "Grocery_CocoCrunch",
+    "Grocery_iHop",
+    "Grocery_Danisa",
+    "Grocery_Wafer",
+    "Grocery_Mamon",
+    "Grocery_JollyTime",
+    "Grocery_MrChips",
+    "Grocery_Delight",
+    "Grocery_LavaCake",
+    "Grocery_Moby",
+    "Grocery_Nova",
+    "Grocery_Pocky",
+    "Grocery_Richoco"};
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public void GenerateStore()
+    {
+        StoreManager.GetComponent<StoreManager>().DestroyRoom();
+        int seed = Random.Range(0, 100);
+        StoreManager.GetComponent<StoreManager>().BuildRandomStore(seed, 20, 20, 4.8f, 0.45f, 0.4f, 0.02f, 1, 4, 3, 0.5f);
+    }
+
+    public void FillShelves()
+    {
+        StoreManager.GetComponent<StoreManager>().DestroyAllProducts();
+        int seed = Random.Range(0, 100);
+        StoreManager.GetComponent<StoreManager>().FillShelves(seed, 270, Items);;
+    }
+
+    public void DebugStore()
+    {
+        StoreManager.GetComponent<StoreManager>().DestroyRoom();
+        StoreManager.GetComponent<StoreManager>().BuildPresetStore("Debug", 4);
+    }
+
+    public void ToggleRecording()
+    {
+        Agent.GetComponent<Agent>().ToggleRecording();
+    }
+
+    public void SaveJson()
+    {
+        Agent.GetComponent<Agent>().SaveJson();
+    }
+
+    public void CaptureScreen()
+    {
+        Agent.GetComponent<Agent>().CaptureScreen();
+    }
+}

@@ -1,0 +1,52 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Camera : MonoBehaviour
+{
+    private bool isCollidingWithShelf = false;
+    private int counter = 0;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Shelf shelf = other.GetComponent<Shelf>();
+        if (shelf != null)
+        {
+            isCollidingWithShelf = true;
+            Debug.Log("Camera entered shelf trigger.");
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        Shelf shelf = other.GetComponent<Shelf>();
+        if (shelf != null)
+        {
+            isCollidingWithShelf = false;
+            Debug.Log("Camera exited shelf trigger.");
+        }
+    }
+
+    
+
+    /*public void GetCameraRotation()
+    {
+        Vector3 cameraRotation = Camera.main.transform.rotation.eulerAngles;
+        string rotationJson = JsonUtility.ToJson(new Vector3Data { x = cameraRotation.x, y = cameraRotation.y, z = cameraRotation.z });
+        Send(rotationJson);
+        Debug.Log("Sent camera rotation: " + rotationJson);
+    }*/
+
+    public (Vector3, Vector3) GetCameraTransform()
+    {
+        Vector3 cameraPosition = transform.position;
+        Vector3 cameraRotation = transform.rotation.eulerAngles;
+        return (cameraPosition, cameraRotation);
+    }
+
+    [System.Serializable]
+    public class Vector3Data
+    {
+        public float x, y, z;
+    }
+}
