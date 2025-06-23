@@ -12,6 +12,14 @@
 /[Uu]ser[Ss]ettings/
 *.log
 
+#Not including grocery product assets, download in a separate link/repository
+
+/Assets/Resources/FBX/
+/Assets/Resources/Materials/
+/Assets/Resources/Prefabs/Products/
+/Assets/Resources/Textures/
+
+
 # By default unity supports Blender asset imports, *.blend1 blender files do not need to be commited to version control.
 *.blend1
 *.blend1.meta
