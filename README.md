@@ -15,12 +15,7 @@ Features:
 5. API to interact with the environment (Scripts/ClientSide.py)
 6. VR capabilities
 -------------
-To open:
-1. Clone this repository
-2. Add project from disk
-3. Open project<br /><br />
-Optional: Uncomment the code inside the Start() method in Assets/Scripts/ServerSide.cs to interact with the environment through the API.
--------------
+
 # ClientSide Documentation
 This module provides functions to send various commands to a WebSocket server and handle the responses.
 
