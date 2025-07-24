@@ -6,9 +6,9 @@ Features:
 1. 6 grocery products with expiration dates and barcodes
 2. 3 store layouts (Assets/Scenes)
 
-![Store 1](./st1.gif)
-![Store 2](./st2.gif)
-![Store 3](./st3.gif)
+![Store 1](Images/st1.gif)
+![Store 2](Images/st2.gif)
+![Store 3](Images/st3.gif)
 
 3. Hinge and sliding doors
 4. Self-checkout counter with barcode scanner
