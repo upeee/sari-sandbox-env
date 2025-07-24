@@ -1,26 +1,21 @@
-# sari-sari-sandbox-source
+# sari-sandbox-source
 Unity 6 (6000.0.42f1)
 
 -------------
 Features:
-1. 6 grocery products with expiration dates and barcodes
+1. 250 grocery products with expiration dates and barcodes (download here: https://drive.google.com/drive/folders/1c5igY7JpvgFxciC0gS3WF41Gnf7llAaW?usp=drive_link)
 2. 3 store layouts (Assets/Scenes)
 
-![Store 1](Images/st1.gif)
-![Store 2](Images/st2.gif)
-![Store 3](Images/st3.gif)
+![Store 1](Images/Store1.gif)
+![Store 2](Images/Store2.gif)
+![Store 3](Images/Store3.gif)
 
 3. Hinge and sliding doors
 4. Self-checkout counter with barcode scanner
 5. API to interact with the environment (Scripts/ClientSide.py)
 6. VR capabilities
 -------------
-To open:
-1. Clone this repository
-2. Add project from disk
-3. Open project<br /><br />
-Optional: Uncomment the code inside the Start() method in Assets/Scripts/ServerSide.cs to interact with the environment through the API.
--------------
+
 # ClientSide Documentation
 This module provides functions to send various commands to a WebSocket server and handle the responses.
 
