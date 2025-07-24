@@ -1,9 +1,9 @@
-# sari-sandbox-source
+# sari-sandbox-env
 Unity 6 (6000.0.42f1)
 
 -------------
 Features:
-1. 250 grocery products with expiration dates and barcodes (download here: https://drive.google.com/drive/folders/1c5igY7JpvgFxciC0gS3WF41Gnf7llAaW?usp=drive_link)
+1. 250 grocery products with expiration dates and barcodes
 2. 3 store layouts (Assets/Scenes)
 
 ![Store 1](Images/Store1.gif)
