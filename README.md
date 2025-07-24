@@ -3,13 +3,8 @@ Unity 6 (6000.0.42f1)
 
 -------------
 Features:
-1. 6 grocery products with expiration dates and barcodes
+1. 250 grocery products with expiration dates and barcodes (download here: https://drive.google.com/drive/folders/1c5igY7JpvgFxciC0gS3WF41Gnf7llAaW?usp=drive_link)
 2. 3 store layouts (Assets/Scenes)
-
-![Store 1](Images/st1.gif)
-![Store 2](Images/st2.gif)
-![Store 3](Images/st3.gif)
-
 3. Hinge and sliding doors
 4. Self-checkout counter with barcode scanner
 5. API to interact with the environment (Scripts/ClientSide.py)
